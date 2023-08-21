@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <bean id="userService" class="xyz.songlin.springlearn.service.UserService">
+        <property name="mailService" ref="mailService"/>
+        <property name="dataSource" ref="dataSource"/>
+    </bean>
+    <bean id="mailService" class="xyz.songlin.springlearn.service.MailService"/>
+    <bean id="dataSource" class="com.zaxxer.hikari.HikariDataSource">
+        <property name="jdbcUrl"
+                  value="jdbc:mysql://rm-cn-lbj3cp9sp000kt9o.rwlb.cn-chengdu.rds.aliyuncs.com:3306/spring-learn"/>
+        <property name="username" value="learn"/>
+        <property name="password" value="Aliyun@2023"/>
+        <property name="maximumPoolSize" value="10"/>
+        <property name="autoCommit" value="true"/>
+    </bean>
+</beans>
